@@ -19,12 +19,12 @@ def start(message):
     
 @bot.message_handler(commands=['help'])
 def help(message):
-    bot.send_message(message.chat.id, 'Чтобы конвертировать одну валюту в другую, нажмите /convert, а затем введите банковские коды валют через /'
+    bot.send_message(message.chat.id, 'Чтобы конвертировать одну валюту в другую, нажмите /convert, а затем введите банковские коды валют через /. Банковские коды валют вы можете найти по ссылке https://www.iban.ru/currency-codes'
                      , reply_markup=keyboard)
 
 @bot.message_handler(commands=['convert'])
 def convert_button(message):
-    bot.send_message(message.chat.id, 'Введите банковские коды валют через /')
+    bot.send_message(message.chat.id, 'Введите банковские коды валют через /. Банковские коды валют вы можете найти по ссылке https://www.iban.ru/currency-codes')
     bot.register_next_step_handler(message, check_currencies)
 
 def check_currencies(message):
